@@ -47,3 +47,20 @@
     opacity: 0;
   }
 }
+
+@media (max-width: 500px) {
+  #content-wrapper {
+    height: 50vh;
+    overflow: auto;
+  }
+
+  #graphics-wrapper {
+   height: 50vh;
+  }
+
+  #graphics {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+}

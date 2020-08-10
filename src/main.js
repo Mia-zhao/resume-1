@@ -59,17 +59,18 @@ const stringContent = `/* 你好，我叫Mia
 let stringBuffer = "";
 let index = 0;
 
-(function printHTML(timeout=60) {
+(function printHTML(timeout=20) {
   setTimeout(()=>{
-    const isNewLine = stringContent[index] === "\n";
-    stringBuffer += isNewLine ? "<br>" : 
+    const isChineseChar = stringContent[index].match(/[\u3400-\u9FBF]/);
+    stringBuffer += stringContent[index] === "\n" ? "<br>" : 
       (stringContent[index] === " " ? "&nbsp;" : stringContent[index]);
     htmlContent.innerHTML = stringBuffer + cursorHTML;
     htmlStyle.innerHTML = stringContent.substr(0, index+1);
     window.scrollTo(0, document.body.scrollHeight);
+    document.getElementById('content-wrapper').scrollTo(0, 10000);
     if (index < stringContent.length - 1) {
       index ++;
-      printHTML(isNewLine ? 120 : undefined);
+      printHTML(isChineseChar ? 80 : undefined);
     }
   }, timeout);
 }) ();
