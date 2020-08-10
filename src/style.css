@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#content {
+  position: relative;
+  display: inline;
+}
+
+#cursor {
+  width: 1px;
+  height: 1em;
+  position: absolute;
+  background-color: black;
+  right: -2px;
+  bottom: 0px;
+  animation: 600ms infinite alternate blink;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
